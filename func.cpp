@@ -45,12 +45,17 @@ void XO::DrawBoard() {
 
 void XO::PlayGame() {   
     int imove;      
-    while (isGameOver!=turn){       
+    while (isGameOver!=turn && isGameOver != -1){       
         std::cout << "Player Number " << turn << " Please enter move: \n";    
         std::cin >> imove;    
         Move(imove); 
-    }      
-    std::cout << "Player Number " << turn << "  Wins!" << std::endl; 
+    } 
+    if(isGameOver != -1){     
+        std::cout << "Player Number " << turn << "  Wins!" << std::endl; 
+    }
+    else{
+        std::cout<<"It is a tie\n";
+    }
 }
 
 int XO::Move(int i) {            
@@ -100,6 +105,9 @@ void XO::Check_For_Win() {
     else if ((board[0][2] == turn) &&  (board[1][1] == turn) && (board[2][0] == turn)){
         isGameOver = turn;
     } 
+    else if((board[0][0]!=0)&&(board[0][1]!=0)&&(board[0][2]!=0)&&(board[1][0]!=0)&&(board[1][1]!=0)&&(board[1][2]!=0)&&(board[2][0]!=0)&&(board[2][1]!=0)&&(board[2][2]!=0)){
+        isGameOver = -1;
+    }
 } 
 
 
