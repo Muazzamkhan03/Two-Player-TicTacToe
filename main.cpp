@@ -6,16 +6,13 @@ int main() {
     char choice;
     XO game;     
 
-    std::cout<<"Welcome to Tic Tac Toe\n"
-    <<"Enter y to play game and n to exit\n";
-    std::cin>>choice;
+    std::cout<<"Welcome to Tic Tac Toe\n";
 
-    while(choice != 'n'){
+    do{
         game.StartGame();
-        std::cout<<"Welcome to Tic Tac Toe\n"
-        <<"Enter y to play game and n to exit\n";
+        std::cout<<"Would you like to play again?\nEnter y to play game and n to exit\n";
         std::cin>>choice;
-    }
+    }while(choice!='n');
     
     return 0;
 
